@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <title>IFC wall</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" type="text/css" href="ifc_style.css">
+        </head>
+    
+        <body>
+            <header>
+                <h1>A WALL</h1>
+                <!--nav class="about_nav">
+                    <ul>
+                        <li><a href="homepage.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="ifc_wall.html">Example of ifc file</a></li>
+                    </ul>
+                </nav>-->
+            </header>
+            <br>
+            <!-- A canvas element, used to render the Three.js scene.
+            An input element, which will open IFC files from our computer to the application.
+            A script referencing a file called bundle.js, which is the bundle of the app that we will produce with rollup.-->
+            <input type="file" id="file-input" accept=".ifc, .ifcXML, .ifcZIP">
+            <canvas id="three-canvas"></canvas>
+            <script src="bundle.js"></script>
+        </body>
+    

@@ -1,0 +1,84 @@
+/*Q: Can you make my webpage more asthetically pleasing?*/
+/*A: Yes, I can. I can add a background image, change the font, and add a border to the page.*/
+html {
+  background-image: url("https://wallpaperaccess.com/full/1236373.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: "Courier New", Courier, monospace;
+}
+
+/* Path: static.css */
+/*Q: Can you make my webpage more asthetically pleasing?*/
+/*A: Yes, I can. I can add a background image, change the font, and add a border to the page.*/
+h1 {
+  color: white;
+  border: 5px solid black;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+}
+
+/* Path: static.css */
+/*Q: Can you make my webpage more asthetically pleasing?*/
+/*A: Yes, I can. I can add a background image, change the font, and add a border to the page.*/
+
+.p1 {
+    color: #ff6347;  /* Paragraph text color: tomato red */
+    background-color: #282c34;  /* Paragraph background color: dark blue */
+    font-family: 'Courier New', Courier, monospace;  /* Paragraph font */
+    font-size: 20px;  /* Font size */
+    line-height: 1.5;  /* Space between lines of text */
+    text-align: justify;  /* Aligns the text to both left and right margins */
+    border-radius: 25px;  /* Round corners on the paragraph box */
+    padding: 20px;  /* Space between the border and the text */
+    box-shadow: 10px 10px 5px #888888;  /* Shadow effect */
+    margin: 50px auto;  /* Center the paragraph, give space above and below */
+    max-width: 600px;  /* Maximum width of the paragraph */
+}
+
+.b1 {
+  font-size: 24px; /* Makes the text on the button larger */
+  padding: 20px 40px; /* Makes the button itself larger by adding padding */
+  border-radius: 50px; /* Gives the button rounded corners */
+  background-color: #007BFF; /* A cool blue color */
+  border: none; /* Removes the default button border */
+  color: white; /* Makes the text color white */
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Gives the text a shadow */
+  box-shadow: 3px 10px 20px rgba(0,0,0,0.5); /* Gives the button a shadow */
+  transition: all 0.3s ease; /* Makes changes animate smoothly */
+}
+
+.b1:hover {
+  background-color: #0056b3; /* Changes the background color when you hover over the button */
+  box-shadow: 3px 10px 20px rgba(0,0,0,0.7); /* Makes the shadow darker when hovering */
+  transform: translateY(-2px); /* Moves the button slightly upwards when hovering */
+}
+
+.b1:active {
+  transform: translateY(1px); /* Moves the button slightly downwards when clicking */
+}
+
+body {
+    transition: background-color 1s ease;
+  }
+
+
+.home_nav {
+    background-color: #333;
+    overflow: hidden;
+  }
+  
+.home_nav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+.home_nav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  

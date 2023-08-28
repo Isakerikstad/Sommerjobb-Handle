@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html,
+  body {
+    overflow: auto; /* Allow scrolling if content exceeds viewport */
+  }
+  
+  header {
+    position: relative; /* Position the header relative to the body */
+    z-index: 2; /* Ensure the header is above other content */
+  }
+  
+  #three-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    outline: none;
+    margin-top: 60px; /* Adjust this value to the height of your header */
+  }
+  
+  #file-input {
+    z-index: 1;
+    position: absolute;
+  }
+  
