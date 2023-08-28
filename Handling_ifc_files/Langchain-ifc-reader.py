@@ -141,7 +141,26 @@ def create_parsing_code(prompt, file=file):
             return "Generated function not found"
     except Exception as e:
         return f"Error in code: {e}"
-    
+
+def select_by_id(*arg):
+    #Tool for selecting an element by its id. It can recieve multiple ids as input.
+    elements = []
+    for id in arg:
+        elements.append(file.by_id(id))
+    return elements
+
+"""
+def split_file(entity, new_file=file):
+    #This tool function splits the IFC file into smaller parts and returns the relevant entity for the task. It is used for lowering the processing time of the AI.
+    entity_types = set(element.is_a() for element in file)
+    if file.by_type(entity) in entity_types:
+        new_file = file.by_type(entity)
+        return new_file
+"""
+
+
+
+          
 material_tool = Tool(
     name="get_material",
     func=get_material,
@@ -162,13 +181,24 @@ storey_tool = Tool(
     func=select_by_storey,
     description="If user prompt is asking for all the stories in the file it will get all the stories in the building, then pass 'all' into the function as argument. Or if the user prompt ask for specific elemtns in story it gives you all the element in a certain storey, then pass the storey as argument. There should only be one argument passed to the function and it should be a string.")
 
+id_tool = Tool(
+    name="select_by_id",
+    func=select_by_id,
+    description="Get a list of elements of given id. input should be element id (like #2540965). It only takes the id as argument. It can take multiple ids as argument.")
+
+"""
+split_file_tool = Tool(
+    name="split_file",
+    func=split_file,
+    description="Split the IFC file into smaller parts and return the relevant entity for the task. It is used for lowering the processing time of the AI. It only takes the entity as argument. It is used before utilizing other tools to shorten the processing time and lower the number of tokens used in the model. You should pass an argument that is a valid ifc entity. For example 'IfcStorey' or 'IfcWall'. If this tool is used, the other tools will have to use the new file as argument. 'new_file' is the name of the new file.")
+"""
+
 exit_tool = Tool(
     name="exit",
     func=exit,
     description="If the input is e or something similar, exit the program")
 
-
-tools = [material_tool, select_by_type_tool, create_parsing_code_tool, storey_tool, exit_tool]
+tools = [material_tool, select_by_type_tool, create_parsing_code_tool, storey_tool, id_tool, exit_tool]
 
 agent = initialize_agent(tools, llm, agent=AgentType.OPENAI_FUNCTIONS, verbose=True, max_tokens=1000, max_iterations=3)
 
@@ -177,5 +207,8 @@ agent = initialize_agent(tools, llm, agent=AgentType.OPENAI_FUNCTIONS, verbose=T
 query = None
 while query != 'e':
     query = input("What would you like to know about the IFC file? e for exit()")
-    response = agent(query)
-    print(response)
+    try:
+        response = agent(query)
+        print(response)
+    except:
+        print("Error. Your request probably demanded too many tokens. Try again.") 
